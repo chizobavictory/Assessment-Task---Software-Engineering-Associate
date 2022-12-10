@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import User from '../model/User'
 
 
 //create user

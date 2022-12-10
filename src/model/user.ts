@@ -8,13 +8,14 @@ interface UserInstance {
   password: string;
 }
 
-const userSchema = new Schema({
-  fullName: { type: String },
-  email: { type: String, unique: true },
-  phoneNumber: { type: Number },
-  password: { type: String },
-},
-{timestamps: true}
+const userSchema = new Schema(
+  {
+    firstname: { type: String },
+    lastname: { type: String},
+    gender: { type: Number },
+    date_of_birth: { type: String },
+  },
+  { timestamps: true }
 );
 
 const User = mongoose.model<UserInstance>("User", userSchema);
