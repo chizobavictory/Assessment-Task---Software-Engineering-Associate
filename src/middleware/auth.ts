@@ -2,7 +2,7 @@ import base64 from 'base-64';
 import { Request, Response, NextFunction } from 'express';
 
 
-export default function auth(req: Request, res: Response, next: NextFunction){
+export function auth(req: Request, res: Response, next: NextFunction){
   const authHeader = req.headers.authorization || ''
   const [username, password] = base64.decode(authHeader.split(' ')[1]).split(':')
   if(username === 'test' && password === 'pass1234'){

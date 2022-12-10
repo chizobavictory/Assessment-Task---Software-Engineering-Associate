@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.auth = void 0;
 const base_64_1 = __importDefault(require("base-64"));
 function auth(req, res, next) {
     const authHeader = req.headers.authorization || '';
@@ -13,4 +14,4 @@ function auth(req, res, next) {
     res.set('WWW-Authenticate', 'Basic realm="user"');
     res.status(401).send('Authentication required');
 }
-exports.default = auth;
+exports.auth = auth;
