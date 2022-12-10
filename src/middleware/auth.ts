@@ -5,7 +5,7 @@ import { Request, Response, NextFunction } from 'express';
 export default function auth(req: Request, res: Response, next: NextFunction){
   const authHeader = req.headers.authorization || ''
   const [username, password] = base64.decode(authHeader.split(' ')[1]).split(':')
-  if(username === 'admin' && password === 'admin'){
+  if(username === 'test' && password === 'pass1234'){
     next()
 }
 
