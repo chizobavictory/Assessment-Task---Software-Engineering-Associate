@@ -1,3 +1,4 @@
+import base64 from "base-64";
 import { Request, Response } from "express";
 import User from "../model/User";
 
@@ -14,6 +15,26 @@ export const createUser = async (req: Request, res: Response) => {
   }
 };
 
+export const login = async (req: Request, res: Response) => {
+  try {
+    const { username, password } = req.body;
+    if (username === "test" && password === "pass1234") {
+      const token = base64.encode(`${username}:${password}`);
+      return res.status(200).json({
+        message: "Token generated",
+        token,
+      });
+    }
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
+};
+
 //getall users
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
@@ -24,3 +45,21 @@ export const getAllUsers = async (req: Request, res: Response) => {
     res.status(500).json(err);
   }
 };
+
+//get user by id
+export const getUserById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findOne({
+      where: {
+        id,
+      },
+    });
+    res.status(200).json(user);
+  } catch (err) {
+    // console.log(err)
+    res.status(500).json(err);
+  }
+};
+
+//update user by id
