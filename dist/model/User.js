@@ -16,7 +16,7 @@ User.init({
     id: {
         type: sequelize_2.default.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
     },
     firstname: {
         type: sequelize_1.DataTypes.STRING,
@@ -36,17 +36,6 @@ User.init({
     },
 }, {
     sequelize: database_config_1.default,
-    tableName: "user"
+    tableName: "user",
 });
-// const userSchema = new Schema(
-//   {
-//     firstname: { type: String },
-//     lastname: { type: String },
-//     gender: { type: String },
-//     date_of_birth: { type: String },
-//   },
-//   { timestamps: true }
-// );
-// userSchema.plugin(initializedAutoIncrement.plugin, { model: 'User' });
-// const User = mongoose.model<User>("User", userSchema);
 exports.default = User;
