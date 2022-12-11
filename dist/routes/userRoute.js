@@ -8,4 +8,5 @@ const express_1 = __importDefault(require("express"));
 // import auth from "../middleware/auth";
 const router = express_1.default.Router();
 router.post("/user", userController_1.createUser);
+router.get("/user", userController_1.getAllUsers);
 exports.default = router;
