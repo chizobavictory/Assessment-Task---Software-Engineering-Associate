@@ -63,3 +63,14 @@ export const getUserById = async (req: Request, res: Response) => {
 };
 
 //update user by id
+export const updateUserById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { firstname, lastname, gender, date_of_birth } = req.body;
+    const user = await User.update({ firstname }, { where: { id } });
+    res.status(200).json(user);
+  } catch (err) {
+    // console.log(err)
+    res.status(500).json(err);
+  }
+};
