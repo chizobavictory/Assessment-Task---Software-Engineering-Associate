@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "node dist/app.js",
     "dev": "nodemon dist/app.js",
-    "compile": "tsc -w",
-    "start": "vercel dev",
-    "deploy": "vercel deploy --prod"
+    "compile": "tsc -w"
   },
   "devDependencies": {
     "@types/base-64": "^1.0.0",
@@ -29,7 +28,6 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "sequelize": "^6.26.0",
-    "sqlite3": "^5.1.2",
-    "vercel": "^28.8.0"
+    "sqlite3": "^5.1.2"
   }
 }
