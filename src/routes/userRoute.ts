@@ -1,4 +1,4 @@
-import { createUser, getAllUsers, getUserById, login, updateUserById } from "../controller/userController";
+import { createUser, deleteUserById, getAllUsers, getUserById, login, updateUserById } from "../controller/userController";
 import express from "express";
 import { auth } from "../middleware/auth";
 // import auth from "../middleware/auth";
@@ -10,5 +10,6 @@ router.post("/users", auth, createUser);
 router.get("/users", auth, getAllUsers);
 router.get("/users/:id", auth, getUserById);
 router.put("/users/:id", auth, updateUserById);
+router.delete("/users/:id", auth, deleteUserById);
 
 export default router;
