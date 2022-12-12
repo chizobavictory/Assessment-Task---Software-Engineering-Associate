@@ -68,7 +68,11 @@ export const updateUsers = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { firstname, lastname, gender, date_of_birth } = req.body;
     const user = await User.update({ firstname, lastname, gender, date_of_birth }, { where: { id } });
-    res.status(200).json(user);
+    res.status(200).json(
+      user && {
+        message: "User updated",
+      }
+    );
   } catch (err) {
     // console.log(err)
     res.status(500).json(err);
@@ -81,6 +85,18 @@ export const deleteUsers = async (req: Request, res: Response) => {
     const { id } = req.params;
     const user = await User.destroy({ where: { id } });
     res.status(200).json(user);
+  } catch (err) {
+    // console.log(err)
+    res.status(500).json(err);
+  }
+};
+
+//logout
+export const logout = async (req: Request, res: Response) => {
+  try {
+    res.status(200).json({
+      message: "Logged out successfully",
+    });
   } catch (err) {
     // console.log(err)
     res.status(500).json(err);
