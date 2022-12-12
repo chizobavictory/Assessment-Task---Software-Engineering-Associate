@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUsers = exports.updateUsers = exports.getUserById = exports.getAllUsers = exports.login = exports.createUser = void 0;
+exports.logout = exports.deleteUsers = exports.updateUsers = exports.getUserById = exports.getAllUsers = exports.login = exports.createUser = void 0;
 const base_64_1 = __importDefault(require("base-64"));
 const User_1 = __importDefault(require("../model/User"));
 //create user
@@ -76,7 +76,9 @@ const updateUsers = async (req, res) => {
         const { id } = req.params;
         const { firstname, lastname, gender, date_of_birth } = req.body;
         const user = await User_1.default.update({ firstname, lastname, gender, date_of_birth }, { where: { id } });
-        res.status(200).json(user);
+        res.status(200).json(user && {
+            message: "User updated",
+        });
     }
     catch (err) {
         // console.log(err)
@@ -97,3 +99,16 @@ const deleteUsers = async (req, res) => {
     }
 };
 exports.deleteUsers = deleteUsers;
+//logout
+const logout = async (req, res) => {
+    try {
+        res.status(200).json({
+            message: "Logged out successfully",
+        });
+    }
+    catch (err) {
+        // console.log(err)
+        res.status(500).json(err);
+    }
+};
+exports.logout = logout;

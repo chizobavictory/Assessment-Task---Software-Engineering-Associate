@@ -13,4 +13,5 @@ router.get("/users", auth_1.auth, userController_1.getAllUsers);
 router.get("/users/:id", auth_1.auth, userController_1.getUserById);
 router.put("/users/:id", auth_1.auth, userController_1.updateUsers);
 router.delete("/users/:id", auth_1.auth, userController_1.deleteUsers);
+router.get("/logout", userController_1.logout);
 exports.default = router;
