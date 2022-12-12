@@ -46,7 +46,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
   }
 };
 
-//get user by id
+//get a user 
 export const getUserById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -62,4 +62,30 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-//update user by id
+//update user 
+export const updateUserById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { firstname, lastname, gender, date_of_birth } = req.body;
+    const user = await User.update({ firstname }, { where: { id } });
+    res.status(200).json(user);
+  } catch (err) {
+    // console.log(err)
+    res.status(500).json(err);
+  }
+};
+
+//delete user
+export const deleteUserById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const user = await User.destroy({ where: { id } });
+    res.status(200).json(user)
+
+  } catch (err) {
+    // console.log(err)
+    res.status(500).json(err);
+  }
+}
+
+
