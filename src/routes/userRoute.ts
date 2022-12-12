@@ -1,7 +1,6 @@
 import { createUser, deleteUsers, getAllUsers, getUserById, login, updateUsers } from "../controller/userController";
 import express from "express";
 import { auth } from "../middleware/auth";
-// import auth from "../middleware/auth";
 
 const router = express.Router();
 
