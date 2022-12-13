@@ -24,3 +24,4 @@ The full API documentation can be found on:
 https://documenter.getpostman.com/view/24035086/2s8YzTUMtU
 
 The server deployed can be found on:
+https://assessment-task-software-engineering-associate.vercel.app/

@@ -9,7 +9,7 @@ const User_1 = __importDefault(require("../model/User"));
 //create user
 const createUser = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
         const { firstname, lastname, gender, date_of_birth } = req.body;
         const user = await User_1.default.create({ firstname, lastname, gender, date_of_birth });
         res.status(201).json(user);

@@ -9,6 +9,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const userRoute_1 = __importDefault(require("./routes/userRoute"));
 const database_config_1 = __importDefault(require("./config/database.config"));
+const path_1 = __importDefault(require("path"));
 database_config_1.default.sync()
     .then(() => {
     console.log("Database connected successfully");
@@ -21,9 +22,13 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, morgan_1.default)("dev"));
 app.use((0, cookie_parser_1.default)());
+app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
 app.use("/", userRoute_1.default);
-const port = 4000;
-app.listen(port, () => {
-    console.log(`Server is running on port:${port}`);
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: path_1.default.join(__dirname, 'public') });
+});
+const PORT = 4000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port:${PORT}`);
 });
 exports.default = app;
