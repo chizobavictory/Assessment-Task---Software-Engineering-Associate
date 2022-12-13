@@ -22,9 +22,9 @@ app.use(cookieParser());
 
 app.use("/", userRouter);
 
-const port = 4000;
-app.listen(port, () => {
-  console.log(`Server is running on port:${port}`);
+const PORT = 4000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port:${PORT}`);
 });
 
 export default app;
