@@ -2,13 +2,13 @@
   "name": "assessment-task-software-engineering-chizobavictory",
   "version": "0.0.0",
   "private": true,
-  "main": "api/app.js",
+  "main": "dist/app.js",
   "engines": {
     "node": ">= 14.0.0"
   },
   "scripts": {
-    "start": "node api/app.js",
-    "dev": "nodemon api/app.js",
+    "start": "node dist/app.js",
+    "dev": "nodemon dist/app.js",
     "compile": "tsc -w"
   },
   "devDependencies": {
