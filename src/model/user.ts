@@ -1,7 +1,3 @@
-// import mongoose, { Schema } from "mongoose";
-// import { initializedAutoIncrement } from "../app";
-// import autoIncrement from "mongoose-auto-increment";
-// import initializedAutoIncrement from "../app";
 import { DataTypes, Model, Sequelize } from "sequelize";
 import sequelize from "sequelize";
 import db from "../config/database.config";
